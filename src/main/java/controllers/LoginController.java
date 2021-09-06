@@ -8,24 +8,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import repositories.UsuarioRepository;
+import domain.Usuario;
 import services.LoginService;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
-	
 	private static final long serialVersionUID = 1L;
 	
 	private LoginService loginService;
 	    
-    public LoginController(LoginService loginService) {
-		this.loginService = new LoginService(new UsuarioRepository());
+    public LoginController() {
+		this.loginService = new LoginService();
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-    	String email = "tiago@gmail.com";
-    	String password = "212312";
+    	String email = request.getParameter("email");
+    	String senha = request.getParameter("senha");
+    	
+    	Usuario usuario = loginService.executar(email, senha);
+    	    	
+    	if (usuario != null && usuario.getAdmin()) {
+    		response.sendRedirect("usuarios");
+    	} else {
+    		response.sendRedirect("login.html");
+    	}
 	}
 }

@@ -1,60 +1,60 @@
 package domain;
 
+import java.util.Objects;
+
 public class Usuario {
-	private String idcon;
-	private String email;
-	private Integer senha;
 	private String nome;
+	private String email;
+	private String senha;
+	private Boolean ehAdmin;
 	private Integer cpf;
 	private Integer rg;
 	private String rua;
-	private Integer nr;
+	private Integer numero;
 	private Integer complemento;
 	private String bairro;
 	private Integer cep;
 	private String cidade;
 	private String estado;
-	private Boolean isAdmin;
 
 	public Usuario() {
 		super();
 	}
 
-	public Usuario(String email, Integer senha) {
+	public Usuario(String nome, String email, String senha, Boolean ehAdmin) {
 		super();
+		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
+		this.ehAdmin = ehAdmin;
 	}
 
-	public Usuario(String nome, Integer cpf, Integer rg, String rua, Integer nr, Integer complemento, String bairro,
+	public Usuario(String nome, String email, Integer cpf, Integer rg, String rua, Integer numero, Integer complemento, String bairro,
 			Integer cep, String cidade, String estado) {
 		super();
+		this.email = email;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.rg = rg;
 		this.rua = rua;
-		this.nr = nr;
+		this.numero = numero;
 		this.complemento = complemento;
 		this.bairro = bairro;
 		this.cep = cep;
 		this.cidade = cidade;
 		this.estado = estado;
 	}
-
-	public String getIdcon() {
-		return idcon;
+	
+	public static Usuario criar(String nome, String email, String senha, Boolean ehAdmin) {
+		return new Usuario(nome, email, senha, ehAdmin);
 	}
 	
-	public void setIsAdmin() {
-		this.isAdmin = true;
+	public void setAdmin() {
+		this.ehAdmin = true;
 	}
 
-	public Boolean getIsAdmin() {
-		return this.isAdmin;
-	}
-
-	public void setIdcon(String idcon) {
-		this.idcon = idcon;
+	public Boolean getAdmin() {
+		return this.ehAdmin;
 	}
 
 	public String getEmail() {
@@ -65,11 +65,11 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public Integer getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 
-	public void setSenha(Integer senha) {
+	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 
@@ -105,12 +105,12 @@ public class Usuario {
 		this.rua = rua;
 	}
 
-	public Integer getNr() {
-		return nr;
+	public Integer getnumero() {
+		return numero;
 	}
 
-	public void setNr(Integer nr) {
-		this.nr = nr;
+	public void setnumero(Integer numero) {
+		this.numero = numero;
 	}
 
 	public Integer getComplemento() {
@@ -152,5 +152,28 @@ public class Usuario {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	
+	@Override
+	public String toString() {
+		return "Usuario [email=" + email + ", senha=" + senha + ", nome=" + nome + ", cpf=" + cpf
+				+ ", rg=" + rg + ", rua=" + rua + ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro
+				+ ", cep=" + cep + ", cidade=" + cidade + ", estado=" + estado + ", ehAdmin=" + ehAdmin + "]";
+	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(email);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		return Objects.equals(email, other.email);
+	}
 }
