@@ -7,20 +7,12 @@ import repositories.UsuarioRepository;
 
 public class UsuarioService {
 	
-	private UsuarioRepository usuarioRepository;	
-	
-	public UsuarioService() {
-		this.usuarioRepository = UsuarioRepository.getInstante();
-	}
+	private UsuarioRepository usuarioRepository = UsuarioRepository.getInstante();	
 
-	public Usuario criar(String name, String email, String senha) {
-		Boolean ehAdmin = usuarioRepository.total() == 0 ? true : false;
-		
-		Usuario usuario = Usuario.criar(name, email, senha, ehAdmin);
+	public void criar(String name, String email, String senha) {
+		Usuario usuario = Usuario.criar(name, email, senha);
 		
 		usuarioRepository.criar(usuario);
-		
-		return usuario;
 	}
 	
 	public void alterar(String email, String nome) {
