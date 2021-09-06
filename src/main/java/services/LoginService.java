@@ -9,18 +9,25 @@ public class LoginService {
 	
 	private UsuarioRepository usuarioRepository;
 
-	public LoginService(UsuarioRepository usuarioRepository) {
-		this.usuarioRepository = usuarioRepository;
+	public LoginService() {
+		this.usuarioRepository = UsuarioRepository.getInstante();
 	}
 
-	private Boolean validar() {
-		return true;
+	private Usuario pegarUsuario(List<Usuario> usuarios, String email, String senha) {
+		for (Usuario u : usuarios) {
+			if (u.getEmail().equals(email) && u.getSenha().equals(senha)) {
+				return u;
+			}
+		}
+		
+		return null;
 	}
 	
-	public void executar() {
+	public Usuario executar(String email, String senha) {	
+		List<Usuario> usuarios = usuarioRepository.listar();
 		
-		Boolean ehValido = validar();
+		Usuario usuario = pegarUsuario(usuarios, email, senha);
 		
-		List<Usuario> usuarios = usuarioRepository.pegarTodosUsuarios();
+		return usuario;
 	}
 }
