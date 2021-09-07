@@ -2,13 +2,17 @@ package domain;
 
 import java.util.Objects;
 
+import utils.GeradorId;
+
 public class Usuario {
+	private String id;
 	private String nome;
 	private String email;
 	private String senha;
 
 	public Usuario() {
 		super();
+		this.id = GeradorId.id();
 	}
 
 	public Usuario(String nome, String email, String senha) {
@@ -16,10 +20,15 @@ public class Usuario {
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
+		this.id = GeradorId.id();
 	}
 
 	public static Usuario criar(String nome, String email, String senha) {
 		return new Usuario(nome, email, senha);
+	}
+	
+	public String getId() {
+		return id;
 	}
 	
 	public String getEmail() {

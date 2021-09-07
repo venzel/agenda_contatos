@@ -29,11 +29,11 @@ public class ListarContatosController extends HttpServlet {
 	
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String usuarioEmail = request.getParameter("usuarioEmail");
+    	String usuarioId = request.getParameter("usuarioId");
     	
-    	Usuario usuario = usuarioService.exibir(usuarioEmail);
+    	Usuario usuario = usuarioService.exibir(usuarioId);
     	
-		List<Contato> contatos = contatoService.listar(usuarioEmail);
+		List<Contato> contatos = contatoService.listar(usuarioId);
 			
 		request.setAttribute("usuario", usuario);
 		request.setAttribute("contatos", contatos);

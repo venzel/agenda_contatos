@@ -20,8 +20,8 @@
 		Nome: <input type="text" name="nome" value="${contato.nome}" /><br /><br />
 		RG: <input type="text" name="rg" value="${contato.rg}" /><br /><br />
 		CPF: <input type="text" name="cpf" value="${contato.cpf}" /><br /><br />
-		<input type="hidden" name="contatoRG" value="${contato.rg}">
-		<input type="hidden" name="usuarioEmail" value="${contato.usuario.email}">
+		<input type="hidden" name="contatoId" value="${contato.id}">
+		<input type="hidden" name="usuarioId" value="${contato.usuario.id}">
 		<input type="submit" value="Alterar" />
 	</form>
 </body>

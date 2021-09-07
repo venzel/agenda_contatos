@@ -1,6 +1,11 @@
 package domain;
 
+import java.util.Objects;
+
+import utils.GeradorId;
+
 public class Endereco {
+	private String id;
 	private String rua;
 	private String numero;
 	private String complemento;
@@ -18,10 +23,15 @@ public class Endereco {
 		this.cep = cep;
 		this.cidade = cidade;
 		this.estado = estado;
+		this.id = GeradorId.id();
 	}
 	
 	public static Endereco criar(String rua, String numero, String complemento, String bairro, String cep, String cidade, String estado) {
 		return new Endereco(rua, numero, complemento, bairro, cep, cidade, estado);
+	}
+
+	public String getId() {
+		return id;
 	}
 
 	public String getRua() {
@@ -78,5 +88,28 @@ public class Endereco {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	@Override
+	public String toString() {
+		return "Endereco [id=" + id + ", rua=" + rua + ", numero=" + numero + ", complemento=" + complemento
+				+ ", bairro=" + bairro + ", cep=" + cep + ", cidade=" + cidade + ", estado=" + estado + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Endereco other = (Endereco) obj;
+		return Objects.equals(id, other.id);
 	}
 }

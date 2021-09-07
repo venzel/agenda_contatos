@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,8 +16,8 @@ public class ContatoService {
 	
 	private UsuarioRepository usuarioRepository = UsuarioRepository.getInstante();
 	
-	public void criar(String name, String rg, String cpf, String rua, String numero, String complemento, String bairro, String cep, String cidade, String estado, String usuarioEmail) {
-		Usuario usuario = usuarioRepository.buscarPeloEmail(usuarioEmail);
+	public void criar(String name, String rg, String cpf, String rua, String numero, String complemento, String bairro, String cep, String cidade, String estado, String usuarioId) {
+		Usuario usuario = usuarioRepository.buscarPeloId(usuarioId);
 		
 		Contato contato = Contato.criar(name, rg, cpf, usuario);
 
@@ -27,14 +28,14 @@ public class ContatoService {
 		contatoRepository.criar(contato);
 	}
 	
-	public Contato exibir(String rg) {
-		return contatoRepository.pegarPorRg(rg);
+	public Contato exibir(String contatoId) {
+		return contatoRepository.pegarContatoPorId(contatoId);
 	}
 	
-	public void alterar(String nome, String rg, String cpf, String contatoRG, String usuarioEmail) {
-		Contato contato = contatoRepository.pegarPorRg(contatoRG);
+	public void alterar(String nome, String rg, String cpf, String contatoId, String usuarioId) {
+		Contato contato = contatoRepository.pegarContatoPorId(contatoId);
 		
-		if (contato != null && contato.getUsuario().getEmail().equals(usuarioEmail)) {
+		if (contato != null && contato.getUsuario().getId().equals(usuarioId)) {
 			contato.setNome(nome);
 			contato.setRg(rg);
 			contato.setCpf(cpf);
@@ -43,15 +44,38 @@ public class ContatoService {
 		}
 	}
 	
-	public List<Contato> listar(String usuarioEmail) {
-		return contatoRepository.pegarPorEmail(usuarioEmail);
+	public Contato adicionarEndereco(String rua, String numero, String complemento, String bairro,
+			String cep, String cidade, String estado, String contatoId, String usuarioId) {
+		List<Endereco> enderecos = new ArrayList<>();
+		
+		Contato contato = contatoRepository.pegarContatoPorId(contatoId);
+		
+		contato.getEnderecos().forEach(e -> enderecos.add(e));
+		
+		if (contato != null && contato.getUsuario().getId().equals(usuarioId)) {
+			Endereco endereco = Endereco.criar(rua, numero, complemento, bairro, cep, cidade, estado);
+			
+			enderecos.add(endereco);
+			
+			contato.setEnderecos(enderecos);
+		}
+		
+		return contato;
 	}
 	
-	public void deletar(String rg, String usuarioEmail) {
-		Contato contato = contatoRepository.pegarPorRg(rg);
+	public void deletarEndereco(String enderecoId) {
+		contatoRepository.deletarEnderecoPorId(enderecoId);
+	}
+	
+	public List<Contato> listar(String usuarioId) {
+		return contatoRepository.pegarPorId(usuarioId);
+	}
+	
+	public void deletar(String contatoId, String usuarioId) {
+		Contato contato = contatoRepository.pegarContatoPorId(contatoId);
 		
-		if (contato != null && contato.getUsuario().getEmail().equals(usuarioEmail)) {
-			contatoRepository.deletarPeloRG(rg);
+		if (contato != null && contato.getUsuario().getId().equals(usuarioId)) {
+			contatoRepository.deletarPorContatoId(contatoId);
 		}
 	}
 }

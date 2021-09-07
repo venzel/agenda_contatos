@@ -11,25 +11,35 @@
 <body>
 	<a href="/gerenciador/login.html">Sair</a>
 
-	<h1>Adicionar contato</h1>
+	<h1>${usuario.nome}</h1>
 	
-	<h2>${usuario.nome}</h2>
+	<a href="/gerenciador/contatos?usuarioId=${usuario.id}">Agenda de contatos</a>
+	
+	<hr>
+	
+	<h2>Adicionar contato</h2>
 	
 	<form action="${linkServletCadastrarContato}" method="post">
-		Nome: <input type="text" name="nome" /><br />
-		RG: <input type="text" name="rg" /><br />
-		CPF: <input type="text" name="cpf" /><br />
-		<hr>
-		<h3>Endereco</h3>
-		Rua: <input type="text" name="rua" /><br />
-		Numero: <input type="text" name="numero" /><br />
-		Complemento: <input type="text" name="complemento" /><br />
-		Bairro: <input type="text" name="bairro" /><br />
-		CEP: <input type="text" name="cep" /><br />
-		Cidade: <input type="text" name="cidade" /><br />
-		Estado: <input type="text" name="estado" /><br />
-		<input type="hidden" name="usuarioEmail" value="${usuario.email}">
+	
+		<h2>Pessoais</h2>
+	
+		Nome: <input type="text" name="nome" value="Matheus Lima" /><br />
+		RG: <input type="text" name="rg" value="2124202" /><br />
+		CPF: <input type="text" name="cpf" value="53232159210" /><br />
+		
+		<h2>Endereco</h2>
+		
+		Rua: <input type="text" name="rua" value="Rua Filomeno Dutra" /><br />
+		Numero: <input type="text" name="numero" value="412" /><br />
+		Complemento: <input type="text" name="complemento" value="S/R" /><br />
+		Bairro: <input type="text" name="bairro" value="Centro" /><br />
+		CEP: <input type="text" name="cep" value="5835121"/><br />
+		Cidade: <input type="text" name="cidade" value="Sao Paulo" /><br />
+		Estado: <input type="text" name="estado" value="SP" /><br />
+		
+		<input type="hidden" name="usuarioId" value="${usuario.id}">
 		<input type="submit" value="Cadastrar" />
 	</form>
+	
 </body>
 </html>

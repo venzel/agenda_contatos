@@ -22,15 +22,15 @@ public class AlterarContatoController extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String contatoRG = request.getParameter("contatoRG");
-    	String usuarioEmail = request.getParameter("usuarioEmail");
+    	String contatoId = request.getParameter("contatoId");
+    	String usuarioId = request.getParameter("usuarioId");
     	
     	String nome = request.getParameter("nome");
     	String rg = request.getParameter("rg");
     	String cpf = request.getParameter("cpf");
 
-    	contatoService.alterar(nome, rg, cpf, contatoRG, usuarioEmail);
+    	contatoService.alterar(nome, rg, cpf, contatoId, usuarioId);
     	
-    	response.sendRedirect("contatos?usuarioEmail="+usuarioEmail);
+    	response.sendRedirect("contatos?usuarioId="+usuarioId);
     }
 }

@@ -5,26 +5,26 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Lista de contatos</title>
+<title>Agenda de contatos</title>
 </head>
 <body>
 	<a href="/gerenciador/login.html">Sair</a>
-	
-	<h1>${usuario.nome}</h1>
 
-	<h2>Lista de contatos</h2>
+	<h1>${usuario.nome}</h1>
+	
+	<h2>Agenda de contatos</h2>
 	
 	<ul>
 		<c:forEach items="${contatos}" var="contato">
 			<li>
-				<a href="/gerenciador/exibirContato?rg=${contato.rg}&usuarioEmail=${contato.usuario.email}">${contato.nome}</a> - 
-				<a href="/gerenciador/exibirContato?rg=${contato.rg}&usuarioEmail=${contato.usuario.email}">exibir</a>
-				<a href="/gerenciador/editarContato?rg=${contato.rg}&usuarioEmail=${contato.usuario.email}">editar</a>
-				<a href="/gerenciador/deletarContato?rg=${contato.rg}&usuarioEmail=${contato.usuario.email}">deletar</a>
+				${contato.nome} - 
+				<a href="/gerenciador/exibirContato?contatoId=${contato.id}&usuarioId=${contato.usuario.id}">exibir</a>
+				<a href="/gerenciador/editarContato?contatoId=${contato.id}&usuarioId=${contato.usuario.id}">editar</a>
+				<a href="/gerenciador/deletarContato?contatoId=${contato.id}&usuarioId=${contato.usuario.id}">deletar</a>
 			</li>
 		</c:forEach>
 	</ul>
 	
-	<a href="/gerenciador/adicionarContato?usuarioEmail=${usuario.email}">Adicionar</a>
+	<a href="/gerenciador/adicionarContato?usuarioId=${usuario.id}">Adicionar</a>
 </body>
 </html>
