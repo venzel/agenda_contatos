@@ -14,7 +14,7 @@
 		<c:forEach items="${usuarios}" var="usuario">
 			<li>
 				${usuario.nome} - 
-				<a href="/gerenciador/exibirUsuario?email=${usuario.email}">exibir</a>
+				<a href="/gerenciador/editarUsuario?email=${usuario.email}">editar</a>
 				<a href="/gerenciador/deletarUsuario?email=${usuario.email}">deletar</a>
 			</li>
 		</c:forEach>

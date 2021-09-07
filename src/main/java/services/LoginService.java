@@ -7,11 +7,7 @@ import repositories.UsuarioRepository;
 
 public class LoginService {
 	
-	private UsuarioRepository usuarioRepository;
-
-	public LoginService() {
-		this.usuarioRepository = UsuarioRepository.getInstante();
-	}
+	private UsuarioRepository usuarioRepository = UsuarioRepository.getInstante();
 
 	private Usuario pegarUsuario(List<Usuario> usuarios, String email, String senha) {
 		for (Usuario u : usuarios) {
