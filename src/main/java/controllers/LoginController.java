@@ -29,7 +29,7 @@ public class LoginController extends HttpServlet {
     	Usuario usuario = loginService.executar(email, senha);
     	    	
     	if (usuario != null) {
-    		response.sendRedirect("contatos?usuarioEmail="+email);
+    		response.sendRedirect("contatos?usuarioId="+usuario.getId());
     	} else {
     		response.sendRedirect("login.html");
     	}

@@ -22,12 +22,11 @@ public class DeletarContatoController extends HttpServlet {
     
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String usuarioEmail = request.getParameter("usuarioEmail");
+    	String contatoId = request.getParameter("contatoId");
+    	String usuarioId = request.getParameter("usuarioId");
     	
-    	String rg = request.getParameter("rg");
+    	contatoService.deletar(contatoId, usuarioId);
     	
-    	contatoService.deletar(rg, usuarioEmail);
-    	
-    	response.sendRedirect("contatos?usuarioEmail="+usuarioEmail);
+    	response.sendRedirect("contatos?usuarioId="+usuarioId);
     }
 }

@@ -22,10 +22,12 @@ public class AlterarUsuarioController extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String email = request.getParameter("email");
+    	String usuarioId = request.getParameter("usuarioId");
+    	
     	String nome = request.getParameter("nome");
+    	String email = request.getParameter("email");
 
-    	usuarioService.alterar(email, nome);
+    	usuarioService.alterar(nome, email, usuarioId);
     	
     	response.sendRedirect("usuarios");
     }

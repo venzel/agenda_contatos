@@ -15,12 +15,13 @@ public class UsuarioService {
 		usuarioRepository.criar(usuario);
 	}
 	
-	public void alterar(String email, String nome) {
-		Usuario usuario = usuarioRepository.buscarPeloEmail(email);
+	public void alterar(String nome, String email, String usuarioId) {
+		Usuario usuario = usuarioRepository.buscarPeloId(usuarioId);
 		
 		if (usuario == null) {}
 		
 		usuario.setNome(nome);
+		usuario.setEmail(email);
 		
 		usuarioRepository.salvar(usuario);
 	}
@@ -29,11 +30,11 @@ public class UsuarioService {
 		return usuarioRepository.listar();
 	}
 	
-	public Usuario exibir(String email) {
-		return usuarioRepository.buscarPeloEmail(email);
+	public Usuario exibir(String usuarioId) {
+		return usuarioRepository.buscarPeloId(usuarioId);
 	}
 	
-	public void deletar(String email) {
-		usuarioRepository.deletarPeloEmail(email);
+	public void deletar(String usuarioId) {
+		usuarioRepository.deletarPeloId(usuarioId);
 	}
 }

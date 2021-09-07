@@ -9,28 +9,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.Usuario;
-import services.UsuarioService;
+import domain.Contato;
+import services.ContatoService;
 
-@WebServlet("/adicionarContato")
-public class AdicionarContatoController extends HttpServlet {
+@WebServlet("/adicionarEndereco")
+public class AdicionarEnderecoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private UsuarioService usuarioService;
+	private ContatoService contatoService;
            
-    public AdicionarContatoController() {
-		this.usuarioService = new UsuarioService();
+    public AdicionarEnderecoController() {
+		this.contatoService = new ContatoService();
 	}
-
+    
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String usuarioId = request.getParameter("usuarioId");
+    	String contatoId = request.getParameter("contatoId");
     	
-		Usuario usuario = usuarioService.exibir(usuarioId);
+		Contato contato = contatoService.exibir(contatoId);
 		
-		request.setAttribute("usuario", usuario);
+		request.setAttribute("contato", contato);
 		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/adicionarContato.jsp");   
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/adicionarEndereco.jsp");   
 		
 		requestDispatcher.forward(request, response);
     }
