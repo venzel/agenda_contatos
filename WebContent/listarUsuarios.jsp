@@ -5,21 +5,24 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="./css/style.css">
 <title>Lista de usuarios</title>
 </head>
 <body>
-	Listar:
-	<br />
-	<ul>
-		<c:forEach items="${usuarios}" var="usuario">
-			<li>
-				${usuario.nome} - 
-				<a href="/gerenciador/editarUsuario?usuarioId=${usuario.id}">editar</a>
-				<a href="/gerenciador/deletarUsuario?usuarioId=${usuario.id}">deletar</a>
-			</li>
-		</c:forEach>
-	</ul>
+	<div class="form-fundo">
+		Listar:
+		<br />
+		<ul>
+			<c:forEach items="${usuarios}" var="usuario">
+				<li>
+					${usuario.nome} - 
+					<a href="/gerenciador/editarUsuario?usuarioId=${usuario.id}">editar</a>
+					<a href="/gerenciador/deletarUsuario?usuarioId=${usuario.id}">deletar</a>
+				</li>
+			</c:forEach>
+		</ul>
 	
-	<a href="/gerenciador/adicionarUsuario.html">Adicionar</a>
+	<a href="/gerenciador/adicionarUsuario.html" class="Botao2">Adicionar</a>
+	</div>
 </body>
 </html>
