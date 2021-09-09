@@ -17,6 +17,14 @@
 
 **Java**, **HTML**, **CSS** com uma arquitetura **MVC**.
 
+## Persistência & outras informações
+
+Os dados são persistidos em memória e a estratégia de gerar ids é utilizando o pacote UUID.
+
+## Diagrama
+
+<img src="./images/diagrama-v1.png" />
+
 ## Testes
 
 Para rodar a aplicação é necessário:
