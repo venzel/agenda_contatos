@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import utils.GeradorId;
@@ -9,6 +11,7 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String senha;
+	private List<Contato> contatos;
 
 	public Usuario() {
 		super();
@@ -21,6 +24,7 @@ public class Usuario {
 		this.email = email;
 		this.senha = senha;
 		this.id = GeradorId.id();
+		this.contatos = new ArrayList<>();
 	}
 
 	public static Usuario criar(String nome, String email, String senha) {
@@ -53,6 +57,14 @@ public class Usuario {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public List<Contato> getContatos() {
+		return contatos;
+	}
+
+	public void setContatos(List<Contato> contatos) {
+		this.contatos = contatos;
 	}
 
 	@Override
