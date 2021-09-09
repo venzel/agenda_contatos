@@ -28,6 +28,8 @@ public class ContatoRepository {
 		contatos.add(contato_tiago_pablo);
 		contatos.add(contato_tiago_marcos);
 		
+		tiago.setContatos(Arrays.asList(contato_tiago_cintia, contato_tiago_pablo, contato_tiago_marcos));
+		
 		Endereco endereco_rita_a = Endereco.criar("Rua 13 de Maio", "214", "n/a", "Centro", "5831212", "Campina Grande", "PB");
 		Endereco endereco_rita_b = Endereco.criar("Rua das Jaboranas", "131", "n/a", "Liberdade", "5831212", "Sao Paulo", "SP");
 		Endereco endereco_rita_c = Endereco.criar("Rua Pedro II", "34", "n/a", "Bodocongo", "5831212", "Rio de Janeiro", "RJ");
