@@ -2,14 +2,18 @@
 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/venzel/servelet_agenda/blob/master/LICENSE)
 
+> **Agenda de contatos** é uma aplicação para registrar contatos.<br />
+
 ## Autores
 
 -   Edivam Enéas de Almeida Júnior<br />
 -   Joab da Silva Maia
 
-> **Agenda de contatos** é uma aplicação para registrar contatos.<br />
-
 ## Tecnologias
+
+<p align="left">
+  <img src="https://cdn.worldvectorlogo.com/logos/java-14.svg" alt="Java" title="Java" width="30" height="30" />
+</p>
 
 **Java**, **HTML**, **CSS** com uma arquitetura **MVC**.
 
@@ -17,17 +21,13 @@
 
 Para rodar a aplicação é necessário:
 
--   Apache Tomcat versão 9.0.52
+-   Apache Tomcat. Sugestão: versão 9.0.52
 -   JSP
 
 ### Usuário de teste
 
-Login: tiago@gmail.com
+Login: tiago@gmail.com<br />
 Senha: tiago
-
-<p align="left">
-  <img src="https://cdn.worldvectorlogo.com/logos/java-14.svg" alt="Java" title="Java" width="30" height="30" />
-</p>
 
 ## Telas
 
