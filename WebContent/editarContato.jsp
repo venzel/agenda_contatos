@@ -6,23 +6,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="./css/style.css">
 <title>Editar contato</title>
 </head>
 <body>
 
-	<a href="/gerenciador/login.html">Sair</a>
+	<a href="/gerenciador/login.html" class="Botao1">Sair</a>
 	
-	<h1>Editar contato</h1>
-
-	<h2>${contato.nome}</h2>
+	<div class="form-fundo">
+		<h1>Editar contato</h1>
 	
-	<form action="${linkServletAlterarContato}" method="post">
-		Nome: <input type="text" name="nome" value="${contato.nome}" /><br /><br />
-		RG: <input type="text" name="rg" value="${contato.rg}" /><br /><br />
-		CPF: <input type="text" name="cpf" value="${contato.cpf}" /><br /><br />
-		<input type="hidden" name="contatoId" value="${contato.id}">
-		<input type="hidden" name="usuarioId" value="${contato.usuario.id}">
-		<input type="submit" value="Alterar" />
-	</form>
+		<h2>${contato.nome}</h2>
+		
+		<form action="${linkServletAlterarContato}" method="post">
+			Nome: <input type="text" name="nome" value="${contato.nome}" /><br /><br />
+			RG: <input type="text" name="rg" value="${contato.rg}" /><br /><br />
+			CPF: <input type="text" name="cpf" value="${contato.cpf}" /><br /><br />
+			<input type="hidden" name="contatoId" value="${contato.id}">
+			<input type="hidden" name="usuarioId" value="${contato.usuario.id}">
+			<input type="submit" value="Alterar" class="Botao2"/>
+		</form>
+	</div>
 </body>
 </html>

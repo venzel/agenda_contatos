@@ -2,20 +2,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="./css/style.css">
 <title>Cadastro de usuario</title>
 </head>
 <body>
-
-	<h1>Cadastro de usuario</h1>
 	
-	<form method="post" action="/gerenciador/cadastrarUsuario">
-		Nome: <input type="text" name="nome" /><br />
-		Email: <input type="text" name="email" /><br />
-		Senha: <input type="text" name="senha" /><br />
+	<div class="form-fundo">
+		<h1>Cadastro de usuario</h1>
 		
-		<input type="submit" value="cadastrar" /><br /><br />
-		
-		<a href="/gerenciador/login.html">login</a>
-	</form>
+		<form method="post" action="/gerenciador/cadastrarUsuario">
+			Nome: <input type="text" name="nome" /><br />
+			Email: <input type="text" name="email" /><br />
+			Senha: <input type="password" name="senha" /><br />
+			
+			<input type="submit" value="cadastrar" class="Botao2"/><br /><br />
+			
+			<a href="/gerenciador/login.html" class="Botao1">login</a>
+		</form>
+	</div>
 </body>
 </html>

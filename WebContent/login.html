@@ -2,17 +2,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="./css/style.css">
 <title>Login</title>
 </head>
 <body>
-
-	<h1>Login</h1>
-	
-	<form method="post" action="/gerenciador/login">
-		Email: <input type="text" name="email" /><br />
-		Senha: <input type="text" name="senha" /><br />
-		<input type="submit" value="login" /><br /><br />
-		<a href="/gerenciador/cadastro.html">Cadastrar-se</a>
-	</form>
+	<div class="form-fundo">
+		<h1>Acessar App</h1>
+		<form method="post" action="/gerenciador/login">
+			Email: <input type="text" name="email" /><br />
+			Senha: <input type="password" name="senha" /><br />
+			<input type="submit" value="login" class="Botao1"/><br /><br />
+			<a href="/gerenciador/cadastro.html" class="Botao2">Cadastrar-se</a>
+		</form>
+	</div>
 </body>
 </html>

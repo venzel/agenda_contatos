@@ -6,33 +6,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="./css/style.css">
 <title>Adicionar contato</title>
 </head>
 <body>
-	<a href="/gerenciador/login.html">Sair</a>
-
+	<a href="/gerenciador/login.html" class="Botao1">Sair</a>
+	
+	<div class="form-fundo">
 	<h1>${contato.usuario.nome}</h1>
 	
-	<a href="/gerenciador/contatos?usuarioId=${contato.usuario.id}">Agenda de contatos</a>
+	<a href="/gerenciador/contatos?usuarioId=${contato.usuario.id}" class="Botao1">Agenda de contatos</a>
 	
 	<hr>
 	
-	<h2>Adicionar contato</h2>
-	
-	<form action="${linkServletCadastrarEndereco}" method="post">
-		Rua: <input type="text" name="rua" value="Rua Pedro I" /><br />
-		Numero: <input type="text" name="numero" value="212" /><br />
-		Complemento: <input type="text" name="complemento" value="S/R" /><br />
-		Bairro: <input type="text" name="bairro" value="Prata" /><br />
-		CEP: <input type="text" name="cep" value="5832212"/><br />
-		Cidade: <input type="text" name="cidade" value="Campina Grande" /><br />
-		Estado: <input type="text" name="estado" value="PB" /><br />
+		<h2>Adicionar contato</h2>
 		
-		<input type="hidden" name="contatoId" value="${contato.id}">
-		<input type="hidden" name="usuarioId" value="${contato.usuario.id}">
-		
-		<input type="submit" value="Cadastrar" />
-	</form>
-	
+		<form action="${linkServletCadastrarEndereco}" method="post">
+			Rua: <input type="text" name="rua" value="Rua Pedro I" /><br />
+			Numero: <input type="text" name="numero" value="212" /><br />
+			Complemento: <input type="text" name="complemento" value="S/R" /><br />
+			Bairro: <input type="text" name="bairro" value="Prata" /><br />
+			CEP: <input type="text" name="cep" value="5832212"/><br />
+			Cidade: <input type="text" name="cidade" value="Campina Grande" /><br />
+			Estado: <input type="text" name="estado" value="PB" /><br />
+			
+			<input type="hidden" name="contatoId" value="${contato.id}">
+			<input type="hidden" name="usuarioId" value="${contato.usuario.id}">
+			
+			<input type="submit" value="Cadastrar" class="Botao2" />
+		</form>
+	</div>
 </body>
 </html>
