@@ -23,7 +23,7 @@ Os dados são persistidos em memória e a estratégia de gerar ids é utilizando
 
 ## Diagrama
 
-<img src="./images/diagrama-v1.png" />
+<img src="./images/diagrama-v2.png" />
 
 ## Testes
 
