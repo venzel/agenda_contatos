@@ -2,8 +2,8 @@
 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/venzel/servelet_agenda/blob/master/LICENSE)
 
-> Projeto em Java com servelets da disciplina Desenvolvimento de Sistemas para Web, ministrada pelo professor orientador 
-Danyllo Wagner pelo IPFB 2021.2.<br />
+> Projeto em Java com servelets da disciplina Desenvolvimento de Sistemas para Web, ministrada pelo professor orientador
+> Danyllo Wagner pelo IPFB 2021.2.<br />
 
 ## Sobre
 
@@ -11,10 +11,10 @@ A agenda de contatos é um sistema simples de cadastro de usuário, contatos e e
 
 ### Principais funcionalidades
 
-- Cadastro de usuários
-- Login
-- Cadastro de contatos
-- Cadastro de endereços nos contatos
+-   Cadastro de usuários
+-   Login
+-   Cadastro de contatos
+-   Cadastro de endereços nos contatos
 
 ## Autores
 
@@ -36,6 +36,10 @@ Os dados são persistidos em memória e a estratégia de gerar ids é utilizando
 ## Diagrama
 
 <img src="./images/diagrama-v2.png" />
+
+## Estrutura de pastas
+
+<img src="./images/folder-v2.png" />
 
 ## Testes
 
