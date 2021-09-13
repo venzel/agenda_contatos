@@ -2,7 +2,19 @@
 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/venzel/servelet_agenda/blob/master/LICENSE)
 
-> **Agenda de contatos** é uma aplicação para registrar contatos.<br />
+> Projeto em Java com servelets da disciplina Desenvolvimento de Sistemas para Web, ministrada pelo professor orientador 
+Danyllo Wagner pelo IPFB 2021.2.<br />
+
+## Sobre
+
+A agenda de contatos é um sistema simples de cadastro de usuário, contatos e endereços.
+
+### Principais funcionalidades
+
+- Cadastro de usuários
+- Login
+- Cadastro de contatos
+- Cadastro de endereços nos contatos
 
 ## Autores
 
