@@ -26,7 +26,20 @@ public class Contato {
 	}
 	
 	public static Contato criar(String nome, String cpf, String rg, Usuario usuario) {
+		if (!valido(nome, cpf, rg, usuario)) {
+			return null;
+		}
+		
 		return new Contato(nome, cpf, rg, usuario);
+	}
+	
+	public static boolean valido(String nome, String cpf, String rg, Usuario usuario) {
+		if (nome.equals("")) return false;
+		if (cpf.equals("")) return false;
+		if (rg.equals("")) return false;
+		if (usuario == null) return false;
+		
+		return true;
 	}
 	
 	public String getId() {

@@ -16,7 +16,7 @@ public class ContatoService {
 	
 	private UsuarioRepository usuarioRepository = UsuarioRepository.getInstante();
 	
-	public void criar(String name, String rg, String cpf, String rua, String numero, String complemento, String bairro, String cep, String cidade, String estado, String usuarioId) {
+	public Contato executarCadastrarContato(String name, String rg, String cpf, String rua, String numero, String complemento, String bairro, String cep, String cidade, String estado, String usuarioId) {
 		Usuario usuario = usuarioRepository.buscarPeloId(usuarioId);
 		
 		Contato contato = Contato.criar(name, rg, cpf, usuario);
@@ -26,13 +26,15 @@ public class ContatoService {
 		contato.setEnderecos(Arrays.asList(endereco));
 		
 		contatoRepository.criar(contato);
+		
+		return contato;
 	}
 	
-	public Contato exibir(String contatoId) {
+	public Contato executarExibirContato(String contatoId) {
 		return contatoRepository.pegarContatoPorId(contatoId);
 	}
 	
-	public void alterar(String nome, String rg, String cpf, String contatoId, String usuarioId) {
+	public void executarEditarContato(String nome, String rg, String cpf, String contatoId, String usuarioId) {
 		Contato contato = contatoRepository.pegarContatoPorId(contatoId);
 		
 		if (contato != null && contato.getUsuario().getId().equals(usuarioId)) {
@@ -44,7 +46,7 @@ public class ContatoService {
 		}
 	}
 	
-	public Contato adicionarEndereco(String rua, String numero, String complemento, String bairro,
+	public Endereco executarCadastrarEndereco(String rua, String numero, String complemento, String bairro,
 			String cep, String cidade, String estado, String contatoId, String usuarioId) {
 		List<Endereco> enderecos = new ArrayList<>();
 		
@@ -52,26 +54,25 @@ public class ContatoService {
 		
 		contato.getEnderecos().forEach(e -> enderecos.add(e));
 		
-		if (contato != null && contato.getUsuario().getId().equals(usuarioId)) {
-			Endereco endereco = Endereco.criar(rua, numero, complemento, bairro, cep, cidade, estado);
-			
+		Endereco endereco = Endereco.criar(rua, numero, complemento, bairro, cep, cidade, estado);
+		
+		if (endereco != null) {
 			enderecos.add(endereco);
-			
 			contato.setEnderecos(enderecos);
 		}
 		
-		return contato;
+		return endereco;
 	}
 	
-	public void deletarEndereco(String enderecoId) {
+	public void executarDeletarEndereco(String enderecoId) {
 		contatoRepository.deletarEnderecoPorId(enderecoId);
 	}
 	
-	public List<Contato> listar(String usuarioId) {
+	public List<Contato> executarListarContatos(String usuarioId) {
 		return contatoRepository.pegarPorId(usuarioId);
 	}
 	
-	public void deletar(String contatoId, String usuarioId) {
+	public void executarDeletarContato(String contatoId, String usuarioId) {
 		Contato contato = contatoRepository.pegarContatoPorId(contatoId);
 		
 		if (contato != null && contato.getUsuario().getId().equals(usuarioId)) {

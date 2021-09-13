@@ -41,7 +41,7 @@
 		
 		<hr>
 	
-	<a href="/gerenciador/adicionarEndereco?contatoId=${contato.id}&usuarioId=${contato.usuario.id}" class="Botao2">Adicionar endereco</a>
+	<a href="/gerenciador/cadastrarEndereco?contatoId=${contato.id}&usuarioId=${contato.usuario.id}" class="Botao2">Adicionar endereco</a>
 	</div>
 </body>
 </html>

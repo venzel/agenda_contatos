@@ -19,7 +19,7 @@ public class LoginService {
 		return null;
 	}
 	
-	public Usuario executar(String email, String senha) {	
+	public Usuario executarLoginUsuario(String email, String senha) {	
 		List<Usuario> usuarios = usuarioRepository.listar();
 		
 		Usuario usuario = pegarUsuario(usuarios, email, senha);

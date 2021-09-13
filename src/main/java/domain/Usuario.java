@@ -28,7 +28,19 @@ public class Usuario {
 	}
 
 	public static Usuario criar(String nome, String email, String senha) {
+		if (!valido(nome, email, senha)) {
+			return null;
+		}
+	
 		return new Usuario(nome, email, senha);
+	}
+	
+	public static boolean valido(String nome, String email, String senha) {
+		if (nome.equals("")) return false;
+		if (email.equals("")) return false;
+		if (senha.equals("")) return false;
+		
+		return true;
 	}
 	
 	public String getId() {

@@ -27,7 +27,23 @@ public class Endereco {
 	}
 	
 	public static Endereco criar(String rua, String numero, String complemento, String bairro, String cep, String cidade, String estado) {
+		if (!valido(rua, numero, complemento, bairro, cep, cidade, estado)) {
+			return null;
+		}
+		
 		return new Endereco(rua, numero, complemento, bairro, cep, cidade, estado);
+	}
+	
+	public static boolean valido(String rua, String numero, String complemento, String bairro, String cep, String cidade, String estado) {
+		if (rua.equals("")) return false;
+		if (numero.equals("")) return false;
+		if (complemento.equals("")) return false;
+		if (bairro.equals("")) return false;
+		if (cep.equals("")) return false;
+		if (cidade.equals("")) return false;
+		if (estado.equals("")) return false;
+		
+		return true;
 	}
 
 	public String getId() {

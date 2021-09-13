@@ -1,4 +1,4 @@
-package controllers;
+package controllers.contato;
 
 import java.io.IOException;
 
@@ -25,7 +25,7 @@ public class DeletarContatoController extends HttpServlet {
     	String contatoId = request.getParameter("contatoId");
     	String usuarioId = request.getParameter("usuarioId");
     	
-    	contatoService.deletar(contatoId, usuarioId);
+    	contatoService.executarDeletarContato(contatoId, usuarioId);
     	
     	response.sendRedirect("contatos?usuarioId="+usuarioId);
     }
