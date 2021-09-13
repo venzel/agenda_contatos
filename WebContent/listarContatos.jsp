@@ -28,7 +28,7 @@
 				</li>
 			</c:forEach>
 		</ul>
-	<a href="/gerenciador/adicionarContato?usuarioId=${usuario.id}" class="Botao2">Adicionar</a>
+	<a href="/gerenciador/cadastrarContato?usuarioId=${usuario.id}" class="Botao2">Adicionar</a>
 	</div>
 </body>
 </html>

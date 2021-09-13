@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:url value="/alterarContato" var="linkServletAlterarContato" />
+<c:url value="/editarContato" var="linkServletEditarContato" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +18,7 @@
 	
 		<h2>${contato.nome}</h2>
 		
-		<form action="${linkServletAlterarContato}" method="post">
+		<form action="${linkServletEditarContato}" method="post">
 			Nome: <input type="text" name="nome" value="${contato.nome}" /><br /><br />
 			RG: <input type="text" name="rg" value="${contato.rg}" /><br /><br />
 			CPF: <input type="text" name="cpf" value="${contato.cpf}" /><br /><br />

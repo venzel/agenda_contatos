@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<title>Adicionar contato</title>
+<title>Cadastrar contato</title>
 </head>
 <body>
 	<a href="/gerenciador/login.html" class="Botao1">Sair</a>

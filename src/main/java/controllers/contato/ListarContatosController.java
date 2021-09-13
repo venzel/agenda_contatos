@@ -1,6 +1,7 @@
-package controllers;
+package controllers.contato;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,28 +10,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import domain.Contato;
 import domain.Usuario;
+import services.ContatoService;
 import services.UsuarioService;
 
-@WebServlet("/adicionarContato")
-public class AdicionarContatoController extends HttpServlet {
+@WebServlet("/contatos")
+public class ListarContatosController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	private ContatoService contatoService;
 	private UsuarioService usuarioService;
-           
-    public AdicionarContatoController() {
+    
+    public ListarContatosController() {
+		this.contatoService = new ContatoService();
 		this.usuarioService = new UsuarioService();
 	}
-
+	
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String usuarioId = request.getParameter("usuarioId");
     	
-		Usuario usuario = usuarioService.exibir(usuarioId);
-		
+    	Usuario usuario = usuarioService.executarPegarUsuarioPorId(usuarioId);
+    	
+		List<Contato> contatos = contatoService.executarListarContatos(usuarioId);
+			
 		request.setAttribute("usuario", usuario);
+		request.setAttribute("contatos", contatos);
 		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/adicionarContato.jsp");   
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/listarContatos.jsp");   
 		
 		requestDispatcher.forward(request, response);
     }

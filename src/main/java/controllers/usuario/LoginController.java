@@ -1,4 +1,4 @@
-package controllers;
+package controllers.usuario;
 
 import java.io.IOException;
 
@@ -26,7 +26,7 @@ public class LoginController extends HttpServlet {
     	String email = request.getParameter("email");
     	String senha = request.getParameter("senha");
     	
-    	Usuario usuario = loginService.executar(email, senha);
+    	Usuario usuario = loginService.executarLoginUsuario(email, senha);
     	    	
     	if (usuario != null) {
     		response.sendRedirect("contatos?usuarioId="+usuario.getId());
